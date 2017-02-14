@@ -31,17 +31,107 @@ html, body
 
 body
 	font-size: 16px
+	font-weight: 700
 	min-width: 320px
 	position: relative
 	line-height: 1.75
 	font-family: $default-font
+	margin: 0
 	overflow-x: hidden
 	color: $text-color
 	background-color: $pick-color
 
-.img-responsive
-	display: block
-	max-width: 100%
-	height: auto
+ul, li 
+	margin: 0
+	padding: 0
+	list-style-type: none
 
-@import "media" // Всегда в конце
+h1, h2, h3, h4, h5, h6
+	font-family: "CormorantGaramond", sans-serif
+
+h1 
+	font-size: 90px
+h2 
+	font-size: 60px
+h3 
+	font-size: 36px
+a 
+	color: $text-color
+
+.before
+	position: absolute
+	content: ""
+	top: 0
+	left: 0
+
+.content
+	max-width: 1170px
+	margin: 0 auto
+
+.logo
+		font-size: 24px
+		text-transform: uppercase
+		text-decoration: none
+		line-height: 26px
+
+.menu
+	display: flex
+	li 
+		margin-right: 36px
+		a 
+			text-decoration: none
+			display: block
+
+.soc-icons
+	display: flex
+	li 
+		display: inline-block
+		margin-right: 25px
+		a 
+			display: block
+			font-size: 20px
+			line-height: 26px
+
+.header	
+	background-size: cover
+	background-position: center top
+	min-height: 500px
+	
+	.top-line
+		width: 100%
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 25px 0
+
+		time
+			font-size: 14px
+
+	.bottom-line
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		align-items: center
+		padding: 20px 0
+		position: relative
+
+		&::before, &::after
+			@extend .before
+			background-color: #cec5c9
+			width: 180%
+			height: 1px
+			left: 50%
+			transform: translateX(-50%)
+		&::after
+			top: 100%	
+
+
+
+
+
+
+
+
+
+
+@import "media" 
