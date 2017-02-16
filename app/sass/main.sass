@@ -51,10 +51,15 @@ h1, h2, h3, h4, h5, h6
 
 h1 
 	font-size: 90px
+	font-family: "CormorantGaramond bold", sans-serif
+	line-height: 80px
 h2 
 	font-size: 60px
 h3 
 	font-size: 36px
+h4 
+	font-size: 30px
+	line-height: 36px
 a 
 	color: $text-color
 
@@ -92,6 +97,9 @@ a
 			font-size: 20px
 			line-height: 26px
 
+.center
+	text-align: center
+
 .header	
 	background-size: cover
 	background-position: center top
@@ -114,6 +122,7 @@ a
 		align-items: center
 		padding: 20px 0
 		position: relative
+		margin-bottom: 120px
 
 		&::before, &::after
 			@extend .before
@@ -125,8 +134,65 @@ a
 		&::after
 			top: 100%	
 
+	// слайдер шапки
+	.slider-header
+		text-align: center
+		position: relative
+		margin-bottom: 120px
+		.slider
+			position: relative
+			h1 
+				margin: 80px 0
+			h4 
+				margin-top: 20px
+				margin-bottom: 10px
+				color: #fafafa
+				font-family: "CormorantGaramond semibolditalic", sans-serif
+			u 
+				color: $yellow-color
+			time 
+				color: #fafafa
+				font-weight: 600
+				line-height: 28px
+			&-wrap
+				max-width: 830px
+				margin: 0 auto
+			
+			.nav-number
+				font-size: 350px
+				line-height: 250px
+				position: absolute
+				top: 50%
+				left: -50px
+				transform: translate(-50%, -50%) rotate(-90deg)
+				color: #fafafa
+				font-family: "CormorantGaramond bold", sans-serif
 
+		// навигация по слайдеру
+		.slider-nav
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			background-color: $yellow-color
+			width: 30px
+			height: 30px
+			z-index: 10
+			&.nav-prev
+				left: 0
+			&.nav-next
+				right: 0
 
+	.bottom
+		color: $yellow-color
+		opacity: .5
+		text-align: center
+		font-size: 38px
+		line-height: 30px
+		cursor: pointer
+		display: inline-block
+		margin-bottom: 50px
+		&:hover
+			opacity: 1
 
 
 
