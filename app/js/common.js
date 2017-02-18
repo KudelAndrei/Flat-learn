@@ -13,8 +13,8 @@ $(function() {
 
 	$(".slider-header").slick({
 		arrows: true,
-		prevArrow: '<div class="slider-nav nav-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
-		nextArrow: '<div class="slider-nav nav-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>',
+		prevArrow: '<div class="header-nav nav-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
+		nextArrow: '<div class="header-nav nav-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>',
 		asNavFor: '.header-nav'
 	});
 		$('.header-nav').slick({
@@ -22,7 +22,8 @@ $(function() {
 		slidesToScroll: 1,
 		asNavFor: '.slider-header',
 		dots: false,
-		centerMode: true,
+		prevArrow: '<div class="header-navigation navigation-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
+		nextArrow: '<div class="header-navigation navigation-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>',
 		focusOnSelect: true
 	});
 

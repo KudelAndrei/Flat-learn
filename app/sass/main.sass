@@ -4,20 +4,24 @@
 @import "vars"
 
 *::-webkit-input-placeholder
-	color: #666
+	color: #b6b4b2
 	opacity: 1
+	font-weight: 300
 
 *:-moz-placeholder
-	color: #666
+	color: #b6b4b2
 	opacity: 1
+	font-weight: 300
 
 *::-moz-placeholder
-	color: #666
+	color: #b6b4b2
 	opacity: 1
+	font-weight: 300
 
 *:-ms-input-placeholder
-	color: #666
+	color: #b6b4b2
 	opacity: 1
+	font-weight: 300
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
@@ -56,14 +60,30 @@ h1
 h2 
 	font-size: 60px
 h3 
-	font-size: 36px
+	font-size: 50px
+	line-height: 55px
 h4 
 	font-size: 30px
 	line-height: 36px
+
+p 
+	font-family: "ProzaLibre-Regular", sans-serif
+	font-weight: 300
 a 
 	color: $text-color
 	&:hover, &:focus, &active
 		outline: none!important
+
+a.read
+	color: $text-color
+	text-decoration: underline
+	display: inline-block
+	font-weight: 300
+	padding-bottom: 5px
+	font-size: 14px
+	&:hover
+		text-decoration: none
+
 
 .before
 	position: absolute
@@ -168,6 +188,11 @@ a
 .center
 	text-align: center
 
+.line
+	background-color: #e8e4e3
+	width: 100%
+	height: 1px
+
 .header	
 	background-size: cover
 	background-position: center top
@@ -261,7 +286,7 @@ a
 				font-family: "CormorantGaramond bold", sans-serif
 
 		// навигация по слайдеру
-		.slider-nav
+		.header-nav
 			position: absolute
 			top: 50%
 			transform: translateY(-50%)
@@ -310,34 +335,390 @@ a
 		
 /// навигация по шапке	
 .slider-navigation
-	.header-slide
-		.header-img
-			width: 100px
-			height: 100px
-			border-radius: 50%
-			background-color: #fcfafa
+	padding: 30px 0
+	background-color: lighten($pink-color, 5%)
+	.header-nav
+		position: relative
+		margin: 60px 0
+		&::before, &::after
+			position: absolute
+			content: ""
+			width: 2px
+			height: 100%
+			top: 0
+			background-color: #cfcbca
+		&::before
+			left: -30px
+		&::after
+			right: -30px
+
+		.header-navigation
+			position: absolute
+			cursor: pointer
+			z-index: 10
+			color: #958686
 			display: inline-block
-			position: relative
-			box-shadow: 0 24px 40px 0 rgba(#e1d6d2, .65)
-			float: left
-			margin-right: 15px
-			img
-				max-width: 100%
-				line-height: 100px
+			line-height: 20px
+			font-size: 30px
+			width: 30px
+			opacity: 0.5
+			&:hover
+				opacity: 1
+			&.navigation-prev
+				left: -80px
+				bottom: -50px
+			&.navigation-next
+				right: -100px
+				top: -50px
+				&::before
+					left: -14px
+			&::before
 				position: absolute
-				top: 50%
+				content: ""
+				width: 15px
+				height: 3px
+				background-color: #958686
+				display: block
+				top: 15px
+				left: 10px
+
+.header-slide, .articles, .topic-item
+	margin-bottom: 40px
+	margin-right: 15px
+	box-sizing: border-box
+	&:hover
+		.header-img
+			box-shadow: 0 24px 40px 0 rgba(#e1d6d2, .65)
+	.header-img
+		width: 100px
+		height: 100px
+		border-radius: 50%
+		background-color: #fcfafa
+		display: inline-block
+		position: relative
+		float: left
+		margin-right: 15px
+		transition: box-shadow ease-in-out 0.2s
+		overflow: hidden
+		img
+			max-width: 100%
+			line-height: 100px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+	.header-categories, .topic-categories
+		display: inline-block
+		span
+			font-family: "CormorantGaramond bolditalic", sans-serif
+			font-size: 24px
+	.header-icon, .topic-icon	
+		float: right
+		li 
+			display: inline-block
+			width: 34px
+			height: 34px
+			background-color: transparent
+			border: 1px solid #d2cfce
+			border-radius: 50%
+			text-align: center
+			cursor: pointer
+			margin-right: 15px
+			transition: color ease-in-out 0.2s
+			a 
+				display: inline-block
+				color: #d2cfce
+				line-height: 31px
+				font-size: 18px
+			&:hover
+				background-color: $text-color
+				border: 1px solid $text-color
+				a 
+					color: #fff
+			&:last-child
+				background-color: $text-color
+				border: 1px solid $text-color
+				a 
+					color: #fff
+				&:hover
+					background-color: transparent
+					border: 1px solid #d2cfce
+					a 
+						color: #d2cfce
+	h3
+		display: inline-block
+		margin-top: 20px
+		position: relative
+		font-family: "CormorantGaramond bolditalic", sans-serif
+		margin-bottom: 20px
+		&::before
+			position: absolute
+			content: ""
+			background-color: $yellow-color
+			width: calc(100% + 10px)
+			height: 30px
+			bottom: 0
+			left: 0
+			z-index: -1
+	p 
+		margin-bottom: 60px
+		max-width: 80%
+
+
+.topics
+	padding: 60px 0
+	//background-color: lighten($pink-color, 2%)
+	h1, h2
+		text-align: center
+		margin-bottom: 70px
+		margin-top: 10px
+		span 
+			text-decoration: underline
+	h2 
+		margin-top: 30px
+	.topic-item
+		max-width: 100%	
+		margin-bottom: 40px
+		&:hover
+			h3 
+				&::before
+					width: 100%
+		.img-topic
+			width: 100%
+			height: 240px
+			overflow: hidden
+			background-size: cover
+			background-position: center top
+			margin-bottom: 15px
+			position: relative
+			text-align: center
+			color: #fff
+			&::before
+				position: absolute
+				content: ""
+				width: 1px
+				height: 0
+				background-color: #FFF
 				left: 50%
-				transform: translate(-50%, -50%)
-		.header-categories
-			span
-				font-family: "CormorantGaramond bolditalic", sans-serif
-				font-size: 24px
-		.header-icon	
-			float: right
+				bottom: 0
+				transform: translateX(-50%)
+				opacity: .9
+				transition: height ease-in-out 0.2s 
+			.topic-num
+				position: absolute
+				top: -100%
+				transition: top ease-in-out 0.3s
+				display: inline-block
+				font-size: 100px
+				line-height: 50px
+				font-family: "CormorantGaramond bold", sans-serif
+				transform: translate(-50%, 0)
+			.topic-mounth
+				position: absolute
+				display: inline-block
+				bottom: -100%
+				transition: bottom ease-in-out 0.3s
+				transform: translate(-50%, 50%)
+				font-size: 20px
+				font-family: "CormorantGaramond semibolditalic", sans-serif
+				font-weight: 300
+				opacity: .9
+			&:hover
+				&::before
+					height: 35%
+				.topic-num
+					top: -14px
+				.topic-mounth
+					bottom: 50%
+
+		.topic-categories
+			font-family: "CormorantGaramond bolditalic", sans-serif
+			font-size: 20px
+		p 
+			margin-bottom: 20px
+		h3 
+			&::before
+				width: 0
+				left: 0
+				transition: width ease-in-out 0.3s
+		a.author
+			color: rgba($text-color, 0.5)
+			font-weight: 300
+			font-size: 20px
+			font-family: "CormorantGaramond bolditalic", sans-serif
+
+	.topics-center
+		.img-topic
+			height: 400px
+	
+	.topics-page
+		position: relative
+		margin-top: 30px
+		margin-bottom: 80px
+		.page-nav
+			li 
+				position: absolute
+				top: -4px
+				width: 30px
+				cursor: pointer
+				line-height: 20px
+				opacity: .5
+				font-size: 28px
+				&:first-child
+					left: 0
+					&::before
+						left: 8px
+				&:last-child
+					right: 0
+					&::before
+						right: 28px
+				&::before
+					position: absolute
+					content: ""
+					width: 15px
+					height: 2px
+					background-color: $text-color
+					top: 14px
+				&:hover
+					opacity: 1
+		.page-items
+			position: absolute
+			top: 0
+			left: 50%
+			transform: translateX(-50%)
+			li 
+				display: inline-block
+				margin-right: 35px
+				position: relative
+				a 
+					position: relative
+					display: inline-block
+					opacity: .5
+					&.active
+						background-color: $yellow-color
+						width: 100%
+						height: 15px
+						z-index: -1
+						opacity: 1
+					&:hover, &:focus
+						opacity: 1
+						color: $text-color
+						text-decoration: none
+				&:last-child
+					margin-right: 0
+
+.more-article
+	text-align: center
+	font-family: "CormorantGaramond bolditalic", sans-serif
+	position: relative
+	margin-top: 50px
+	margin-bottom: 80px
+	cursor: default
+	&::after
+		position: absolute
+		content: ""
+		width: 0
+		height: 0
+		border-radius: 50%
+		background-color: darken($pink-color, 5%)
+		z-index: -1
+		left: 50%
+		opacity: 0
+		top: 50%
+		transform: translate(-50%, -50%)
+		transition: all ease-in-out 0.3s
+	&:hover
+		&::after
+			opacity: 1
+			width: 280px
+			height: 280px
+		.article-icon
+			li
+				transform: scale(1)
+				opacity: 1
+	span 
+		font-size: 20px
+	h3
+		line-height: 40px
+		margin-top: 10px
+		margin-bottom: 20px
+		font-size: 35px
+		font-family: "CormorantGaramond bolditalic", sans-serif
+	>a 
+		color: rgba($text-color, 0.5)
+		font-weight: 300
+		font-size: 20px
+
+	.article-icon
+		position: absolute
+		top: -60px
+		right: -10px
+		li 
+			display: block
+			width: 34px
+			height: 34px
+			background-color: transparent
+			border: 1px solid #d2cfce
+			border-radius: 50%
+			text-align: center
+			cursor: pointer
+			margin-bottom: 10px
+			transition: color ease-in-out 0.2s
+			transform: scale(0)
+			opacity: 0	
+			>a 
+				display: inline-block
+				color: #d2cfce
+				line-height: 31px
+				font-size: 18px
+			&:hover
+				background-color: $text-color
+				border: 1px solid $text-color
+				a 
+					color: #fff
+			&:last-child
+				background-color: $text-color
+				border: 1px solid $text-color
+				a 
+					color: #fff
+				&:hover
+					background-color: transparent
+					border: 1px solid #d2cfce
+					a 
+						color: #d2cfce
+.topics
+	.subscribe-h2
+		margin-bottom: 30px
+
+.subscribe
+	position: relative
+	margin-bottom: 50px
+	input, button
+		width: 100%
+		border-radius: 50px
+		border: none
+	input
+		height: 50px
+		padding-left: 20px
+		padding-right: 140px
+
+	button
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		width: 134px
+		height: 40px
+		right: 5px
+		background-color: darken($pink-color, 2%)
+		font-weight: 300
+		&:hover
+			background-color: darken($pink-color, 4%)
 
 
+.footer
+	background-color: darken($pink-color, 7%)
+	padding: 80px 0
 
-
-
+	
 
 @import "media" 
